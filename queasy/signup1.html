@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="signup1.css" />
+    <title>Login - Queasy</title>
+  </head>
+  <body>
+    <div class="login d-flex justify-content-center align-items-center">
+      <div class="container main">
+        <div class="row border rounded-4 shadow box-area">
+          <!-- login left -->
+          <div
+            class="col-md-4 d-flex justify-content-center align-items-center flex-column left-box"
+            style="background: #faf7f4"
+          >
+            <div class="featured-image">
+              <img src="img/login.jpg" alt="login" class="img-fluid" />
+            </div>
+          </div>
+          <!-- login right -->
+          <div
+            class="col-md-8 rounded-start-4 right-box"
+            style="background-color: #fcc822"
+          >
+            <div class="header m-4">
+              <h1>Qu<span>easy</span></h1>
+            </div>
+            <div class="content mx-5">
+              <p>Welcome to Queasy!</p>
+              <p><small>Create a free account in 2 steps</small></p>
+              <div class="d-grid gap-2">
+                <button
+                  class="btn btn-light mt-3"
+                  id="admin"
+                  type="button"
+                  onclick="toAdmin()"
+                >
+                  Sign up as Admin
+                </button>
+                <button class="btn btn-light mb-3" id="user" type="button" onclick="toUser()">
+                  Sign up as Player
+                </button>
+              </div>
+              <p>
+                <small
+                  >Already have an account?
+                  <a href="login.html" class="text-decoration-none"
+                    >login</a
+                  ></small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function togglePassword() {
+        const passwordField = document.getElementById("password");
+        const passwordIcon = document.getElementById("passwordIcon");
+
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          passwordIcon.src = "img/eye-slash-solid.svg";
+        } else {
+          passwordField.type = "password";
+          passwordIcon.src = "img/eye-solid.svg";
+        }
+      }
+
+      function toAdmin() {
+        window.location.href = "signup.html";
+      }
+
+      function toUser() {
+        window.location.href = "signup2.html";
+      }
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

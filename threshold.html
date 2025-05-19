@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Website Edukasi QUEASY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            overflow: auto;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .timeline-wrapper {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+        
+        .svg-container {
+            width: 100%;
+            height: auto;
+            min-height: 580px;
+        }
+        
+        svg {
+            width: 100%;
+            height: auto;
+            min-width: 900px; /* Ensures the SVG doesn't get too small on narrow screens */
+        }
+        
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .timeline-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            
+            .svg-container {
+                min-height: 500px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .timeline-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+        
+        /* Scrollbar styling for better user experience */
+        .timeline-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .timeline-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .timeline-wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        
+        .timeline-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timeline-wrapper">
+            <div class="svg-container">
+                <svg viewBox="0 0 1000 580" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <!-- Background -->
+                    <rect x="0" y="0" width="1000" height="580" fill="#ffffff" rx="5" ry="5"/>
+                    
+                    <!-- Title -->
+                    <text x="500" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Timeline Website Edukasi QUEASY</text>
+                    
+                    <!-- Timeline base -->
+                    <line x1="100" y1="120" x2="900" y2="120" stroke="#ccc" stroke-width="4"/>
+                    
+                    <!-- Month labels -->
+                    <text x="100" y="90" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Mei</text>
+                    <text x="300" y="90" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Juni</text>
+                    <text x="500" y="90" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Juli</text>
+                    <text x="700" y="90" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Agustus</text>
+                    <text x="900" y="90" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">September</text>
+                    
+                    <!-- Timeline nodes with hover effect -->
+                    <circle cx="100" cy="120" r="10" fill="#4CAF50">
+                        <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="300" cy="120" r="10" fill="#FFC107">
+                        <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" begin="0.4s"/>
+                    </circle>
+                    <circle cx="500" cy="120" r="10" fill="#FF9800">
+                        <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" begin="0.8s"/>
+                    </circle>
+                    <circle cx="700" cy="120" r="10" fill="#F44336">
+                        <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+                    </circle>
+                    <circle cx="900" cy="120" r="10" fill="#2196F3">
+                        <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" begin="1.6s"/>
+                    </circle>
+                    
+                    <!-- Phase 1: Requirements Gathering -->
+                    <rect x="50" y="150" width="150" height="70" fill="#4CAF50" rx="5" ry="5" opacity="0.8"/>
+                    <text x="125" y="180" font-family="Arial" font-size="15" font-weight="bold" text-anchor="middle" fill="white">TAHAP 1</text>
+                    <text x="125" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="white">Identifikasi Masalah</text>
+                    
+                    <!-- Phase 1 Tasks -->
+                    <rect x="20" y="240" width="220" height="270" fill="#f5f5f5" rx="5" ry="5" stroke="#ddd"/>
+                    <text x="140" y="260" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Tugas</text>
+                    <text x="45" y="285" font-family="Arial" font-size="13" fill="#333">• Identifikasi pernyataan</text>
+                    <text x="45" y="300" font-family="Arial" font-size="13" fill="#333">masalah</text>
+                    <text x="45" y="325" font-family="Arial" font-size="13" fill="#333">• Menentukan ruang lingkup</text>
+                    <text x="45" y="340" font-family="Arial" font-size="13" fill="#333">proyek</text>
+                    <text x="45" y="365" font-family="Arial" font-size="13" fill="#333">• Studi literatur</text>
+                    <text x="45" y="390" font-family="Arial" font-size="13" fill="#333">• Analisis pengguna target</text>
+                    <text x="45" y="415" font-family="Arial" font-size="13" fill="#333">• Membuat kerangka proyek</text>
+                    <text x="45" y="440" font-family="Arial" font-size="13" fill="#333">• Pembagian peran tim</text>
+                    
+                    <!-- Phase 2: Data Gathering -->
+                    <rect x="250" y="150" width="150" height="70" fill="#FFC107" rx="5" ry="5" opacity="0.8"/>
+                    <text x="325" y="180" font-family="Arial" font-size="15" font-weight="bold" text-anchor="middle" fill="white">TAHAP 2</text>
+                    <text x="325" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="white">Pengumpulan Data</text>
+                    
+                    <!-- Phase 2 Tasks -->
+                    <rect x="230" y="240" width="220" height="270" fill="#f5f5f5" rx="5" ry="5" stroke="#ddd"/>
+                    <text x="340" y="260" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Tugas</text>
+                    <text x="245" y="285" font-family="Arial" font-size="13" fill="#333">• Analisis kebutuhan pengguna</text>
+                    <text x="245" y="310" font-family="Arial" font-size="13" fill="#333">• Membuat persona pengguna</text>
+                    <text x="245" y="335" font-family="Arial" font-size="13" fill="#333">• Dokumentasi temuan</text>
+                    
+                    <!-- Phase 3: Conceptual Design -->
+                    <rect x="450" y="150" width="150" height="70" fill="#FF9800" rx="5" ry="5" opacity="0.8"/>
+                    <text x="525" y="180" font-family="Arial" font-size="15" font-weight="bold" text-anchor="middle" fill="white">TAHAP 3</text>
+                    <text x="525" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="white">Analisis Tugas</text>
+                    
+                    <!-- Phase 3 Tasks -->
+                    <rect x="430" y="240" width="220" height="270" fill="#f5f5f5" rx="5" ry="5" stroke="#ddd"/>
+                    <text x="540" y="260" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Tugas</text>
+                    <text x="445" y="285" font-family="Arial" font-size="13" fill="#333">• Menentukan tugas pengguna</text>
+                    <text x="445" y="310" font-family="Arial" font-size="13" fill="#333">• Merencanakan interaksi</text>
+                    <text x="445" y="325" font-family="Arial" font-size="13" fill="#333">pengguna</text>
+                    <text x="445" y="350" font-family="Arial" font-size="13" fill="#333">• Menentukan mekanik game</text>
+                    <text x="445" y="375" font-family="Arial" font-size="13" fill="#333">• Evaluasi dengan stakeholder</text>
+                    
+                    <!-- Phase 4: Prototyping -->
+                    <rect x="650" y="150" width="170" height="70" fill="#F44336" rx="5" ry="5" opacity="0.8"/>
+                    <text x="735" y="180" font-family="Arial" font-size="15" font-weight="bold" text-anchor="middle" fill="white">TAHAP 4</text>
+                    <text x="735" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="white">Pembuatan & Pengujian</text>
+                    
+                    <!-- Phase 4 Tasks -->
+                    <rect x="630" y="240" width="220" height="270" fill="#f5f5f5" rx="5" ry="5" stroke="#ddd"/>
+                    <text x="740" y="260" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Tugas</text>
+                    <text x="645" y="285" font-family="Arial" font-size="13" fill="#333">• Membuat mockup UI (Figma)</text>
+                    <text x="645" y="310" font-family="Arial" font-size="13" fill="#333">• Implementasi sistem</text>
+                    <text x="645" y="335" font-family="Arial" font-size="13" fill="#333">• Pengujian blackbox</text>
+                    <text x="645" y="360" font-family="Arial" font-size="13" fill="#333">• Pengujian UAT</text>
+                    <text x="645" y="385" font-family="Arial" font-size="13" fill="#333">• Analisis hasil pengujian</text>
+                    
+                    <!-- Phase 5: Final Delivery -->
+                    <rect x="850" y="150" width="150" height="70" fill="#2196F3" rx="5" ry="5" opacity="0.8"/>
+                    <text x="925" y="180" font-family="Arial" font-size="15" font-weight="bold" text-anchor="middle" fill="white">TAHAP 5</text>
+                    <text x="925" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="white">Dokumentasi</text>
+                    
+                    <!-- Phase 5 Tasks -->
+                    <rect x="830" y="240" width="220" height="270" fill="#f5f5f5" rx="5" ry="5" stroke="#ddd"/>
+                    <text x="940" y="260" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Tugas</text>
+                    <text x="845" y="285" font-family="Arial" font-size="13" fill="#333">• Menulis laporan proyek</text>
+                    <text x="845" y="300" font-family="Arial" font-size="13" fill="#333">akhir</text>
+                    <text x="845" y="325" font-family="Arial" font-size="13" fill="#333">• Dokumentasi desain</text>
+                    <text x="845" y="340" font-family="Arial" font-size="13" fill="#333">sistem</text>
+                    <text x="845" y="365" font-family="Arial" font-size="13" fill="#333">• Membuat dokumentasi</text>
+                    <text x="845" y="380" font-family="Arial" font-size="13" fill="#333">pengguna</text>
+                    <text x="845" y="405" font-family="Arial" font-size="13" fill="#333">• Persiapan presentasi</text>
+                    <text x="845" y="420" font-family="Arial" font-size="13" fill="#333">akhir</text>
+                    <text x="845" y="445" font-family="Arial" font-size="13" fill="#333">• Serah terima proyek</text>
+                    <text x="845" y="470" font-family="Arial" font-size="13" fill="#333">• Mempresentasikan</text>
+                    <text x="845" y="485" font-family="Arial" font-size="13" fill="#333">temuan</text>
+                    
+                    <!-- Connecting lines from timeline to phases -->
+                    <line x1="100" y1="130" x2="100" y2="150" stroke="#4CAF50" stroke-width="2"/>
+                    <line x1="300" y1="130" x2="300" y2="150" stroke="#FFC107" stroke-width="2"/>
+                    <line x1="500" y1="130" x2="500" y2="150" stroke="#FF9800" stroke-width="2"/>
+                    <line x1="700" y1="130" x2="700" y2="150" stroke="#F44336" stroke-width="2"/>
+                    <line x1="900" y1="130" x2="900" y2="150" stroke="#2196F3" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

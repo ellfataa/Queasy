@@ -1,0 +1,226 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+.disabled-card {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.lock-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+/* navbar */
+.logo {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  margin-bottom: 0px;
+}
+.logo span {
+  color: #fcc822;
+}
+.nav-item {
+  font-size: 14px;
+}
+.nav-link {
+  color: #18152d;
+  text-decoration: none;
+}
+.nav-item button {
+  font-size: 14px;
+}
+.nav-item a:hover {
+  color: orange;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+/* navbar end */
+
+.hero {
+  color: var(--hitam, #18152d);
+  line-height: normal;
+  font-style: normal;
+}
+.hero-title {
+  font-size: 66px;
+  font-weight: 700;
+  text-align: center;
+}
+.hero-text {
+  font-size: 20px;
+  font-weight: 400;
+}
+.hero button {
+  font-size: 18px;
+  font-weight: 600;
+  width: 160px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+.image-hero img {
+  width: 499px;
+  height: 499px;
+  flex-shrink: 0;
+}
+.frame2 {
+  position: relative;
+  background-color: #fcc822;
+  height: 100vh;
+}
+
+.frame2 h1, .frame3 h1, .frame4 h1 {
+  color: var(--hitam, #18152d);
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.frame2 p, .frame3 p, .frame4 p {
+  color: var(--hitam, #18152d);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px 50px 50px 0px;
+}
+.card img {
+  width: 95%;
+  margin: auto;
+}
+.card-body p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.lingkaran {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-color: #fcc822;
+  color: white;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.lingkaran i {
+  position: relative;
+  top: 30px;
+}
+
+.frame4 {
+  height: 150vh;
+  border-radius: 75px 75px 0 0;
+}
+
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+.carousel-caption h4,
+.carousel-caption p,
+.carousel-caption h1 {
+  position: relative;
+  z-index: 2;
+  opacity: 0.85;
+}
+footer {
+  background-color: #333;
+  height: 280px;
+}
+.f-head {
+  color: var(--primary, #fcc822);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.f-text a {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+.f-text:hover {
+  color: #fff;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+.logo p {
+  color: white;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.logo span {
+  color: #fcc822;
+}
+
+.kartu:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.view-all {
+  color: #18152d;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.view-all:hover {
+  color: #fcc822;
+  text-decoration: underline;
+  transition: 0.3s;
+
+}
+
+/* Show the mobile menu when the screen width is less than 768px */
+/* @media screen and (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero h1 {
+    margin-top: 50px;
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .frame2 {
+    height: 170vh;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .hero-img {
+    display: none;
+  }
+} */
