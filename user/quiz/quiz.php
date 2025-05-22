@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("functions.php");
+require_once(__DIR__ . "../../../layout/functions.php");
 
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
@@ -145,11 +145,11 @@ if ($current_q) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="quiz.css">
-    <link rel="icon" href="img/q!.ico" type="image/x-icon">
+    <link rel="icon" href="../../img/q!.ico" type="image/x-icon">
 </head>
 <body>
 <form action="check_answer.php" method="post">
-    <?php include("navbar.php"); ?>
+    <?php include("../../layout/navbar.php"); ?>
 
     <!-- Modal jawaban -->
     <div class="modal fade" id="answerModal" tabindex="-1">

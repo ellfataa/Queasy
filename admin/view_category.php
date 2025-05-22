@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("../functions.php");
+require_once(__DIR__ . "../../layout/functions.php");
     if(!isset($_SESSION["login"])){
         header("Location: ../login.php");
         exit;

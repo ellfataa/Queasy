@@ -6,7 +6,7 @@
         </div>
         <div class="col-3 d-flex flex-column align-items-center my-3 p-3 bg-white rounded-4 shadow-sm">
             <p>Buat Kuismu Sendiri!</p>
-            <a href="create_quiz.php"><button class="btn btn-warning">+ Tambah</button></a>
+            <a href="/Queasy/user/quiz/create_quiz.php"><button class="btn btn-warning">+ Tambah</button></a>
         </div>
         <div class="category">
             <h3>Kategori :</h3>
@@ -31,7 +31,7 @@
             echo "<h4>".htmlspecialchars($row['category_name'])."</h4>";
 
             
-                echo '<a href="view_category.php?id='.$categ_id.'" class="view-all text-black">Lihat semua</a>';
+                echo '<a href="/Queasy/user/category/view_category.php?id='.$categ_id.'" class="view-all text-black">Lihat semua</a>';
             
 
             echo '</div>';
@@ -50,7 +50,7 @@
                     $is_quiz_locked = $is_category_locked && !$is_first_quiz;
                     
                     if (!$is_quiz_locked) {
-                        echo '<a href="quiz.php?id='.$row2["id"].'" class="text-decoration-none">';
+                        echo '<a href="user/quiz/quiz.php?id='.$row2["id"].'" class="text-decoration-none">';
                     }
                     
                     echo '<div class="kartu card shadow" style="width: 16rem;">';

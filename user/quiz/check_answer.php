@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("functions.php");
+require_once(__DIR__ . "../../../layout/functions.php");
 
 // 1. Validate session and request
 if (!isset($_SESSION["login"])) {
