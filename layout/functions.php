@@ -1,6 +1,8 @@
 <?php
 require_once("config.php");
-//fungsi register
+
+define('BASE_URL', '/Queasy/');
+
 function register($data){
     global $mysqli;
     $username = strtolower(stripslashes($data["username"]));

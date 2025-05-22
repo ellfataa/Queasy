@@ -5,7 +5,8 @@ if(isset($_SESSION["login"])){
     exit;
 }
 //menambahkan modul fungsi
-require_once("functions.php");
+require_once(__DIR__ . "/layout/functions.php");
+
 $username = $_POST["username"];
 $password = $_POST["password"];
 

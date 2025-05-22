@@ -1,6 +1,6 @@
 <?php
 //menambahkan modul fungsi
-require_once("functions.php");
+require_once(__DIR__ . "/layout/functions.php");
 
 if(isset($_POST["register"])){
     if(register($_POST) > 0){

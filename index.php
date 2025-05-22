@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("functions.php");
+require_once(__DIR__ . "/layout/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -25,11 +25,11 @@ require_once("functions.php");
 <body class="bg-body-tertiary">
 
 <!-- Navbar -->
-<?php include("navbar.php"); ?>
+<?php include(__DIR__ . "/layout/navbar.php"); ?>
 
 <!-- Kategori (hanya jika sudah login) -->
 <?php if (isset($_SESSION["login"])): ?>
-  <?php include("category.php"); ?>
+  <?php include(__DIR__ . "/user/category/category.php"); ?>
 <?php endif; ?>
 
 <!-- Hero Section -->
@@ -40,7 +40,7 @@ require_once("functions.php");
         <div class="col-lg-6 col-md-12 col-sm-12 m-auto hero">
           <h1 class="hero-title text-end">"Uji Otakmu Dengan Queasy!"</h1>
           <p class="hero-text">Platform kuis yang membantu kamu menguji pengetahuan dan meningkatkan kemampuan.</p>
-          <a href="#frame3"><button type="button" class="btn btn-outline-dark btn-warning shadow">Mulai</button></a>
+          <a href="login.php"><button type="button" class="btn btn-outline-dark btn-warning shadow">Mulai</button></a>
           <a href="register.php"><button type="button" class="btn btn-outline-dark btn-light shadow sign">Daftar</button></a>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 image-hero">
