@@ -1,9 +1,14 @@
 <?php
 session_start();
-require_once("../functions.php");
+require_once(__DIR__ . "/../layout/functions.php");
 
-if(!isset($_SESSION["login"]) || !isset($_SESSION["admin"])) {
-    header("Location: ../login.php");
+if(!isset($_SESSION['username'])) {
+    header('location:../login.php');
+    exit;
+}
+
+if(!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
+    header('location:../index.php');
     exit;
 }
 
@@ -86,26 +91,44 @@ if(isset($_GET["table"]) && isset($_GET["id"])) {
         // Commit transaction if all queries succeeded
         mysqli_commit($mysqli);
         
-        // Redirect based on table type
-        $redirect_url = "view_question.php?success=delete&content=";
+        // Redirect based on table type - menggunakan index.php dengan parameter content
+        $redirect_url = "index.php?content=";
         switch($table) {
             case "user":
-                $redirect_url .= "user";
+                $redirect_url .= "user&success=delete&item=user";
                 break;
             case "quizzes":
-                $redirect_url .= "quiz&categ_id=".$_GET["categ_id"]."&name=".$_GET["categ_name"];
+                $redirect_url .= "quiz&success=delete&item=quiz";
+                if(isset($_GET["categ_id"])) {
+                    $redirect_url .= "&categ_id=".$_GET["categ_id"];
+                }
+                if(isset($_GET["categ_name"])) {
+                    $redirect_url .= "&name=".$_GET["categ_name"];
+                }
                 break;
             case "questions":
-                $redirect_url .= "questions&quiz_id=".$_GET["quiz_id"]."&quiz_name=".$_GET["quiz_name"];
+                $redirect_url .= "questions&success=delete&item=question";
+                if(isset($_GET["quiz_id"])) {
+                    $redirect_url .= "&quiz_id=".$_GET["quiz_id"];
+                }
+                if(isset($_GET["quiz_name"])) {
+                    $redirect_url .= "&quiz_name=".$_GET["quiz_name"];
+                }
                 break;
             case "options":
-                $redirect_url .= "options&question_id=".$_GET["question_id"]."&question_text=".$_GET["question_text"];
+                $redirect_url .= "options&success=delete&item=option";
+                if(isset($_GET["question_id"])) {
+                    $redirect_url .= "&question_id=".$_GET["question_id"];
+                }
+                if(isset($_GET["question_text"])) {
+                    $redirect_url .= "&question_text=".$_GET["question_text"];
+                }
                 break;
             case "category":
-                $redirect_url .= "category";
+                $redirect_url .= "category&success=delete&item=category";
                 break;
             default:
-                $redirect_url .= "dashboard";
+                $redirect_url .= "dashboard&success=delete&item=record";
         }
         
         header("Location: $redirect_url");

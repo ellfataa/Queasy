@@ -1,6 +1,4 @@
 <?php
-// This file should be included in index.php, so session and authentication checks are already handled
-// Get category data
 $result = mysqli_query($mysqli, "SELECT * FROM category ORDER BY id ASC");
 ?>
 
@@ -292,7 +290,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM category ORDER BY id ASC");
                                     <img src="../img/<?= htmlspecialchars($row['img']) ?>" 
                                          alt="<?= htmlspecialchars($row['category_name']) ?>" 
                                          class="category-img"
-                                         onerror="this.src='../img/default-category.png'">
+                                         onerror="this.src='../img/other.jpg'">
                                 </td>
                                 <td class="text-center">
                                     <a href="index.php?content=edit&table=category&id=<?= $row['id'] ?>&category_name=<?= urlencode($row['category_name']) ?>&img=<?= urlencode($row['img']) ?>" 

@@ -648,22 +648,7 @@ if($currentPage == 'dashboard') $pageTitle = 'Dashboard';
                             <a href="?content=options" class="stat-link">
                                 Manage Options <i class="fas fa-arrow-right"></i>
                             </a>
-                        </div>
-                        
-                        <div class="stat-card" style="border-image: linear-gradient(135deg, #667eea, #764ba2) 1;">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-number"><i class="fas fa-plus-circle"></i></div>
-                                    <div class="stat-label">Quick Actions</div>
-                                </div>
-                                <div class="stat-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                                    <i class="fas fa-bolt"></i>
-                                </div>
-                            </div>
-                            <a href="?content=quiz" class="stat-link">
-                                Create New Quiz <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
+                        </div>                    
                     </div>
                     
                     <div class="system-status">
