@@ -84,7 +84,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="auth.css" />
 </head>
 <body>
 

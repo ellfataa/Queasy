@@ -1,4 +1,3 @@
-/* ===== GLOBAL STYLES ===== */
 * {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
@@ -9,7 +8,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===== UTILITY CLASSES ===== */
 .disabled-card {
   opacity: 0.6;
   pointer-events: none;
@@ -30,7 +28,7 @@ body {
   display: block;
 }
 
-/* ===== NAVBAR STYLES ===== */
+/* NAVBAR */
 .navbar {
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   background-color: #fff !important;
@@ -82,11 +80,12 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== HERO SECTION ===== */
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #fff;
   color: #18152d;
-  padding: 4rem 0;
+  padding: 10px 0;
+  margin: 10px 0;
 }
 
 .hero-title {
@@ -128,7 +127,7 @@ body {
   50% { transform: translateY(-20px); }
 }
 
-/* Button styling for hero section */
+/* Styling Tombol untuk Hero */
 .btn-warning {
   background: linear-gradient(135deg, #fcc822, #f0b90b);
   border: none;
@@ -166,7 +165,6 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== SECTION STYLES ===== */
 .section-title {
   color: #18152d;
   font-size: clamp(2rem, 4vw, 2.75rem);
@@ -184,10 +182,10 @@ body {
   margin: 0 auto;
 }
 
-/* ===== HOW TO PLAY SECTION (FRAME2) ===== */
+/* Frame 2 -Cara Bermain */
 .frame2 {
-  background: linear-gradient(135deg, #fcc822, #f0b90b);
-  padding: 4rem 0;
+  background: #fcc822;
+  padding: 5px 0 10px 0;
 }
 
 .frame2 h1 {
@@ -250,10 +248,10 @@ body {
   margin: 0;
 }
 
-/* ===== ANYWHERE ANYTIME SECTION (FRAME3) ===== */
+/* Frame 3 -Bermain di mana saja dan kapan saja */
 .frame3 {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 10px 0;
+  background: #fff;
 }
 
 .frame3 h1 {
@@ -314,7 +312,7 @@ body {
   line-height: 1.5;
 }
 
-/* ===== FOR EVERYONE SECTION (FRAME4) ===== */
+/* Frame 4 -Carousel Queasy untuk Semua */
 .frame4 {
   padding: 4rem 0;
   background: linear-gradient(135deg, #18152d, #2c2847);
@@ -389,9 +387,9 @@ body {
   font-weight: 300;
 }
 
-/* ===== FOOTER STYLES ===== */
+/* Footer */
 footer {
-  background: linear-gradient(135deg, #18152d, #2c2847) !important;
+  background: #18152d;
   padding: 3rem 0 1rem 0 !important;
   color: white !important;
   width: 100% !important;

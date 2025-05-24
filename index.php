@@ -23,7 +23,7 @@
 
   <title>Queasy - Selamat Datang!</title>
 </head>
-<body class="bg-body-tertiary">
+<body>
 
   <!-- Navbar -->
   <?php include(__DIR__ . "/layout/navbar.php"); ?>
@@ -35,7 +35,7 @@
 
   <!-- Hero Section -->
   <?php if (!isset($_SESSION["login"])): ?>
-    <div class="hero bg-body-tertiary">
+    <div class="hero">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-12 m-auto hero">
@@ -161,7 +161,7 @@
   <?php endif; ?>
 
   <!-- Footer -->
-  <footer style="background-color: #333; width: auto; height:220px;">
+  <footer>
     <div class="container">
       <div class="row d-flex align-items-center py-4 px-5 max-vw-100">
         <div class="col-4 logo m-auto">
