@@ -4,6 +4,17 @@
         header("Location: /Queasy/index.php");
         exit;
     }
+    
+    // Ambil skor user saat ini
+    $user_id = $_SESSION['id'];
+    $user_query = mysqli_query($mysqli, "SELECT score FROM user WHERE id = $user_id");
+    $user_data = mysqli_fetch_assoc($user_query);
+    $user_score = $user_data ? $user_data['score'] : 0;
+    
+    // Ambil ranking user
+    $rank_query = mysqli_query($mysqli, "SELECT COUNT(*) + 1 as user_rank FROM user WHERE score > $user_score");
+    $rank_data = mysqli_fetch_assoc($rank_query);
+    $user_rank = $rank_data['user_rank'];
 ?>
 
 <div class="container my-4">
@@ -13,7 +24,7 @@
             <div class="hero-section bg-white p-4 mb-4">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="hero-title mb-3" style="font-size: 3.2 rem; font-weight: 700; color: #18152d;">
+                        <h1 class="hero-title mb-3" style="font-size: 3.2rem; font-weight: 700; color: #18152d;">
                             Hai, <?php echo htmlspecialchars($_SESSION["username"]); ?>! 👋
                         </h1>
                         <p class="hero-text mb-0" style="font-size: 18px; color: #666;">
@@ -22,9 +33,13 @@
                     </div>
                     <div class="col-md-4 text-center">
                         <div class="achievement-badge p-3 rounded-3" style="background: rgba(252, 200, 34, 0.2); border: 2px solid #fcc822;">
-                            <i class="fas fa-star fa-2x text-warning mb-2"></i>
-                            <p class="mb-0 fw-semibold" style="color: #18152d;">Mulai Bermain!</p>
-                            <small class="text-muted">Pilih kategori favoritmu</small>
+                            <i class="fas fa-trophy fa-2x text-warning mb-2"></i>
+                            <div class="score-info">
+                                <p class="mb-1 fw-bold" style="color: #18152d; font-size: 1.2rem;">
+                                    <?php echo number_format($user_score); ?> pts
+                                </p>
+                                <small class="text-muted">Skor Total</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -119,7 +134,7 @@
                     
                     // Quiz stats or status
                     echo '<div class="quiz-meta d-flex justify-content-between align-items-center mt-auto pt-2 border-top">';
-                    echo '<small class="text-muted"><i class="fas fa-questions-circle me-1"></i>Kuis</small>';
+                    echo '<small class="text-muted"><i class="fas fa-question-circle me-1"></i>Kuis</small>';
                     if (!$is_quiz_locked) {
                         echo '<small class="text-success fw-semibold">Mulai <i class="fas fa-arrow-right ms-1"></i></small>';
                     } else {
@@ -141,7 +156,7 @@
                 echo '</div>'; // row
             } else {
                 echo '<div class="no-quiz-placeholder text-center py-5 rounded-3" style="background: rgba(108, 117, 125, 0.1);">';
-                echo '<i class="fas fa-quiz fa-3x text-muted mb-3"></i>';
+                echo '<i class="fas fa-question fa-3x text-muted mb-3"></i>';
                 echo '<p class="text-muted mb-0">Belum ada kuis dalam kategori ini</p>';
                 echo '<small class="text-muted">Kuis akan segera tersedia</small>';
                 echo '</div>';
@@ -199,6 +214,18 @@
     box-shadow: 0 5px 15px rgba(252, 200, 34, 0.3);
 }
 
+/* Score Info Styling */
+.score-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-info .badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
@@ -220,6 +247,10 @@
     
     .quiz-card {
         margin-bottom: 1rem;
+    }
+    
+    .score-info p {
+        font-size: 1rem !important;
     }
 }
 

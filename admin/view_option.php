@@ -1,15 +1,4 @@
 <?php
-    session_start();
-    require_once("../functions.php");
-    if(!isset($_SESSION["login"])){
-        header("Location: ../login.php");
-        exit;
-    }
-    if(!isset($_SESSION["admin"])){
-        header("Location: ../index.php");
-        exit;
-    }
-
     $quest_id = $_GET["question_id"] ?? "";
     $quest_text = $_GET["question_text"] ?? "All";
     

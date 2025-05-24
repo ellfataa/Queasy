@@ -3,13 +3,19 @@
   require_once(__DIR__ . "/layout/functions.php");
 
   if (isset($_SESSION["login"])) {
-      header("Location: index.php");
+      // Redirect berdasarkan role
+      if (isset($_SESSION["admin"]) && $_SESSION["admin"]) {
+          header("Location: admin/index.php");
+      } else {
+          header("Location: index.php");
+      }
       exit;
   }
 
   $error = false;
   $success = '';
   $login_success = false;
+  $redirect_url = 'index.php';
 
   if (isset($_GET["success"])) {
       $success = htmlspecialchars($_GET["success"]);
@@ -39,6 +45,9 @@
                   
                   if ($row["role"] === "admin") {
                       $_SESSION["admin"] = true;
+                      $redirect_url = 'admin/index.php';
+                  } else {
+                      $redirect_url = 'index.php';
                   }
 
                   // Hitung skor dengan prepared statement
@@ -186,7 +195,7 @@
     timerProgressBar: true,
     showConfirmButton: false
   }).then((result) => {
-    window.location.href = 'index.php';
+    window.location.href = '<?= $redirect_url ?>';
   });
   <?php endif; ?>
 

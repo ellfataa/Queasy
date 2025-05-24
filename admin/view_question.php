@@ -1,17 +1,4 @@
 <?php
-session_start();
-require_once("../functions.php");
-
-if(!isset($_SESSION["login"])){
-    header("Location: ../login.php");
-    exit;
-}
-
-if(!isset($_SESSION["admin"])){
-    header("Location: ../index.php");
-    exit;
-}
-
 if(isset($_GET["quiz_id"]) && $_GET["quiz_id"] !== ""){
     $quiz_id = $_GET["quiz_id"];
     $quiz_name = $_GET["quiz_name"];
