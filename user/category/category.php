@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: /Queasy/index.php");
+    exit;
+}
+?>
+
+
 <div class="container">
     <div class="row d-flex justify-content-between">
         <div class="col-8 m-3 py-3 px-4 bg-white rounded-4 shadow-sm">

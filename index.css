@@ -1,226 +1,554 @@
+/* ===== GLOBAL STYLES ===== */
 * {
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== UTILITY CLASSES ===== */
 .disabled-card {
-    opacity: 0.6;
-    pointer-events: none;
-    cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .lock-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    color: #6c757d;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #6c757d;
 }
 
-/* navbar */
+.wave-divider {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== NAVBAR STYLES ===== */
+.navbar {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff !important;
+  padding: 1rem 0;
+}
+
 .logo {
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  color: #18152d;
 }
+
 .logo span {
   color: #fcc822;
 }
+
 .nav-item {
   font-size: 14px;
+  margin: 0 0.5rem;
 }
+
 .nav-link {
-  color: #18152d;
+  color: #18152d !important;
   text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
+
+.nav-link:hover {
+  color: #fcc822 !important;
+  background-color: rgba(252, 200, 34, 0.1);
+  transform: translateY(-2px);
+}
+
 .nav-item button {
   font-size: 14px;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
 }
-.nav-item a:hover {
-  color: orange;
-  text-decoration: underline;
-  transition: 0.3s;
-}
-/* navbar end */
 
-.hero {
-  color: var(--hitam, #18152d);
-  line-height: normal;
-  font-style: normal;
+.nav-item button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #18152d;
+  padding: 4rem 0;
+}
+
 .hero-title {
-  font-size: 66px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #18152d, #fcc822);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.hero-text {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #666;
+  max-width: 500px;
+}
+
+.image-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  width: clamp(300px, 40vw, 500px);
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Button styling for hero section */
+.btn-warning {
+  background: linear-gradient(135deg, #fcc822, #f0b90b);
+  border: none;
+  color: #18152d;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-warning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(252, 200, 34, 0.3);
+  color: #18152d;
+}
+
+.btn-light.sign {
+  background: #fff;
+  color: #18152d;
+  border: 2px solid #fcc822;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-light.sign:hover {
+  background: #fcc822;
+  color: #18152d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== SECTION STYLES ===== */
+.section-title {
+  color: #18152d;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.section-description {
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== HOW TO PLAY SECTION (FRAME2) ===== */
+.frame2 {
+  background: linear-gradient(135deg, #fcc822, #f0b90b);
+  padding: 4rem 0;
+}
+
+.frame2 h1 {
+  color: #18152d;
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   text-align: center;
-}
-.hero-text {
-  font-size: 20px;
-  font-weight: 400;
-}
-.hero button {
-  font-size: 18px;
-  font-weight: 600;
-  width: 160px;
-  height: 50px;
-  flex-shrink: 0;
-  margin-right: 20px;
-}
-.image-hero img {
-  width: 499px;
-  height: 499px;
-  flex-shrink: 0;
-}
-.frame2 {
-  position: relative;
-  background-color: #fcc822;
-  height: 100vh;
+  margin-bottom: 1rem;
 }
 
-.frame2 h1, .frame3 h1, .frame4 h1 {
-  color: var(--hitam, #18152d);
-  font-size: 44px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 64px;
-}
-
-.frame2 p, .frame3 p, .frame4 p {
-  color: var(--hitam, #18152d);
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0px 50px 50px 0px;
-}
-.card img {
-  width: 95%;
-  margin: auto;
-}
-.card-body p {
+.frame2 p {
+  color: #18152d;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.frame2 .card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.frame2 .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.frame2 .card-img-top {
+  width: 90%;
+  margin: 1rem auto 0 auto;
+  border-radius: 15px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.frame2 .card-body {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.frame2 .card-title {
+  font-weight: 600;
+  color: #18152d;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.frame2 .card-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== ANYWHERE ANYTIME SECTION (FRAME3) ===== */
+.frame3 {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.frame3 h1 {
+  color: #18152d;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.frame3 > .container > .row:first-of-type p {
+  color: #666;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.frame3 .col-lg-4 {
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .lingkaran {
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  background-color: #fcc822;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #fcc822, #f0b90b);
+  color: #18152d;
   border-radius: 50%;
-  margin: auto;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 10px 30px rgba(252, 200, 34, 0.3);
+  transition: all 0.3s ease;
+}
+
+.lingkaran:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(252, 200, 34, 0.4);
 }
 
 .lingkaran i {
-  position: relative;
-  top: 30px;
+  font-size: 3rem;
 }
 
+.frame3 .fw-semibold {
+  font-size: 18px;
+  color: #18152d;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.frame3 p:not(.fw-semibold) {
+  color: #666;
+  font-size: 14px;
+  max-width: 250px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ===== FOR EVERYONE SECTION (FRAME4) ===== */
 .frame4 {
-  height: 150vh;
-  border-radius: 75px 75px 0 0;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #18152d, #2c2847);
+  color: white;
 }
 
-.carousel-item::before {
+.frame4 h1 {
+  color: white;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.frame4 > h1 + p {
+  color: white;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.frame4 .carousel {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.frame4 .carousel-item {
+  position: relative;
+  height: 400px;
+}
+
+.frame4 .carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.frame4 .carousel-item::before {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
   z-index: 1;
 }
-.carousel-caption h4,
-.carousel-caption p,
-.carousel-caption h1 {
-  position: relative;
+
+.frame4 .carousel-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
   z-index: 2;
-  opacity: 0.85;
-}
-footer {
-  background-color: #333;
-  height: 280px;
-}
-.f-head {
-  color: var(--primary, #fcc822);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 32px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-.f-text a {
-  color: #fff;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-}
-.f-text:hover {
-  color: #fff;
-  text-decoration: underline;
-  transition: 0.3s;
-}
-.logo p {
+  text-align: center;
   color: white;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
-.logo span {
+
+.frame4 .carousel-caption h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.frame4 .carousel-caption p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+  color: #f8f9fa;
+  font-weight: 300;
+}
+
+/* ===== FOOTER STYLES ===== */
+footer {
+  background: linear-gradient(135deg, #18152d, #2c2847) !important;
+  padding: 3rem 0 1rem 0 !important;
+  color: white !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+footer .logo p {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+}
+
+footer .logo span {
   color: #fcc822;
 }
 
-.kartu:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
+footer .col-4 {
+  text-align: center;
 }
 
-.view-all {
-  color: #18152d;
+.f-head {
+  color: #fcc822;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-.view-all:hover {
+.f-text {
+  margin-bottom: 0.5rem;
+}
+
+.f-text a {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.f-text a:hover {
   color: #fcc822;
   text-decoration: underline;
-  transition: 0.3s;
-
 }
 
-/* Show the mobile menu when the screen width is less than 768px */
-/* @media screen and (max-width: 768px) {
+footer hr {
+  border: 0;
+  height: 2px;
+  background: #fcc822;
+  margin: 2rem 0 1rem 0;
+}
+
+footer .text-warning {
+  color: #fcc822 !important;
+  font-size: 14px;
+}
+
+footer .text-warning span {
+  color: #fcc822;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
   .hero {
-    min-height: 70vh;
+    padding: 2rem 0;
   }
-
-  .hero h1 {
-    margin-top: 50px;
+  
+  .hero-title {
+    font-size: 2rem;
   }
-
-  .hero-img {
-    display: none;
+  
+  .hero-text {
+    font-size: 16px;
   }
-
-  .navbar {
-    padding: 10px;
+  
+  .frame2,
+  .frame3,
+  .frame4 {
+    padding: 3rem 0;
   }
-
-  .frame2 {
-    height: 170vh;
+  
+  .frame2 .card-img-top {
+    height: 150px;
+  }
+  
+  .lingkaran {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .lingkaran i {
+    font-size: 2.5rem;
+  }
+  
+  .frame4 .carousel-item,
+  .frame4 .carousel-item img {
+    height: 300px;
+  }
+  
+  footer .logo p {
+    font-size: 36px;
+  }
+  
+  footer .col-4 {
+    text-align: center;
+    margin-bottom: 2rem;
   }
 }
 
-@media screen and (max-width: 990px) {
-  .hero-img {
-    display: none;
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.75rem;
   }
-} */
+  
+  .hero-text {
+    font-size: 14px;
+  }
+  
+  .section-title,
+  .frame2 h1,
+  .frame3 h1,
+  .frame4 h1 {
+    font-size: 1.75rem;
+  }
+  
+  .btn-warning,
+  .btn-light.sign {
+    padding: 0.6rem 1.5rem;
+    font-size: 14px;
+  }
+  
+  .frame2 .card-img-top {
+    height: 120px;
+  }
+  
+  .lingkaran {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .lingkaran i {
+    font-size: 2rem;
+  }
+  
+  .frame4 .carousel-item,
+  .frame4 .carousel-item img {
+    height: 250px;
+  }
+  
+  .frame4 .carousel-caption h4 {
+    font-size: 1.25rem;
+  }
+  
+  .frame4 .carousel-caption p {
+    font-size: 0.9rem;
+  }
+}

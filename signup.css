@@ -1,56 +1,83 @@
 * {
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  height: 110vh;
+body {
+  background-color: #fff9f0;
+  margin: 0;
 }
 
 .login {
-  height: 90vh;
-  padding: 0 20px 0 20px;
+  min-height: 100vh;
 }
 
-.login h1 {
-  color: var(--hitam, #18152d);
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.box-area {
+  width: 100%;
+  max-width: 900px;
+  min-height: 550px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.left-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right-box {
+  padding: 40px 30px;
+}
+
+/* Header styling */
+.header {
+  margin-bottom: 20px;
+}
+
+.header .btn {
+  font-size: 14px;
+  padding: 8px 15px;
+}
+
+.right-box h1 {
+  color: #18152d;
   font-size: 40px;
-  font-style: normal;
   font-weight: 700;
 }
 
-.login h1 span {
-  color: var(--putih, #faf7f4);
+.right-box h1 span {
+  color: #faf7f4;
 }
 
-.login p {
-  color: var(--hitam, #18152d);
-  font-family: Poppins;
+/* Content styling */
+.content p {
+  color: #18152d;
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
-.login small {
-  color: var(--hitam, #18152d);
-  font-family: Poppins;
+.content small {
+  color: #18152d;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
 }
 
-.left-box {
-  border-radius: 15px 0 0 15px;
+/* Form styling */
+.form-label {
+  font-weight: 500;
+  color: #18152d;
 }
 
-.box-area{
-  width: 800px;
-  height: 550px;
+form input {
+  margin-bottom: 10px;
 }
 
 .group-input {
@@ -62,60 +89,123 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px; 
+  width: 20px;
   height: 20px;
   cursor: pointer;
   opacity: 0.5;
 }
 
 .group-input input {
-  padding-right: 30px;
-  position: relative;
-  
+  padding-right: 40px;
 }
 
-.link:hover {
+/* Button styling */
+button.btn:hover {
+  background-color: #18152d;
   color: white;
 }
 
+/* Bottom container */
+.bottom-container {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.bottom-container a {
+  color: #18152d;
+  font-weight: 500;
+}
+
+.bottom-container a:hover {
+  color: #faf7f4;
+}
+
+/* Alert styling */
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Responsive Design */
 @media only screen and (max-width: 768px) {
   .box-area {
-    background-color: #fcc822;
-    margin: 0px;
-    max-width: 420px;
-    width: 100%;
-  }
-  .login small {
-    font-size: 14px;
+    flex-direction: column;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px !important;
   }
 
-  .login p {
-    font-size: 22px;
-  }
-
-  .login h1 {
-    font-size: 38px;
-  }
-
-  .login {
-    height: 100vh;
-  }
-  
-  .form-label{
-    font-size: 14px;
-  }
-  .left-box {
-    height: 200px;
-    overflow: hidden;
-    border-radius: 15px 15px 0 0;
-  }
-  .main {
-    height: 200vh;
-    margin-top: 0px;
-  }
+  .left-box,
   .right-box {
-    height: 90vh;
-    border-radius: 0 0 0 15px;
+    width: 100%;
+    height: auto;
+    border-radius: 0 !important;
+  }
+
+  .left-box {
+    border-radius: 10px 10px 0 0 !important;
+  }
+
+  .right-box {
+    padding: 20px;
+    border-radius: 0 0 10px 10px !important;
+  }
+
+  .right-box h1 {
+    font-size: 34px;
+  }
+
+  .content p {
+    font-size: 20px;
+  }
+
+  .content small {
+    font-size: 14px;
+  }
+
+  .form-label {
+    font-size: 14px;
+  }
+
+  .group-input img {
+    top: 35%;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header .btn {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .main {
+    padding: 20px 10px;
+  }
+
+  .right-box {
+    padding: 15px;
+  }
+
+  .content {
+    margin: 20px 0;
+  }
+
+  .right-box h1 {
+    font-size: 28px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+}
