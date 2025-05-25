@@ -5,16 +5,12 @@
         exit;
     }
     
+    // Include functions untuk menggunakan helper functions
+    require_once('layout/functions.php');
+    
     // Ambil skor user saat ini
     $user_id = $_SESSION['id'];
-    $user_query = mysqli_query($mysqli, "SELECT score FROM user WHERE id = $user_id");
-    $user_data = mysqli_fetch_assoc($user_query);
-    $user_score = $user_data ? $user_data['score'] : 0;
-    
-    // Ambil ranking user
-    $rank_query = mysqli_query($mysqli, "SELECT COUNT(*) + 1 as user_rank FROM user WHERE score > $user_score");
-    $rank_data = mysqli_fetch_assoc($rank_query);
-    $user_rank = $rank_data['user_rank'];
+    $user_stats = get_user_stats($mysqli, $user_id);
 ?>
 
 <div class="container my-4">
@@ -36,9 +32,9 @@
                             <i class="fas fa-trophy fa-2x text-warning mb-2"></i>
                             <div class="score-info">
                                 <p class="mb-1 fw-bold" style="color: #18152d; font-size: 1.2rem;">
-                                    <?php echo number_format($user_score); ?> pts
+                                    <?php echo number_format($user_stats['total_score']); ?> pts
                                 </p>
-                                <small class="text-muted">Skor Total</small>
+                                <small class="text-muted">Skor Total | Rank #<?php echo $user_stats['rank']; ?></small>
                             </div>
                         </div>
                     </div>
@@ -63,14 +59,9 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $categ_id = $row["id"];
             
-            // Kategori pertama selalu terbuka
-            $is_category_locked = ($categ_id > 1);
-            
-            if ($is_category_locked) {
-                $prev_category_id = $categ_id - 1;
-                $prev_score = get_user_category_score($mysqli, $_SESSION['id'], $prev_category_id);
-                $is_category_locked = ($prev_score < 50);
-            }
+            // Gunakan fungsi dari functions.php
+            $is_category_locked = is_category_locked($mysqli, $_SESSION['id'], $categ_id);
+            $category_progress = get_category_progress($mysqli, $_SESSION['id'], $categ_id);
 
             echo '<div class="category-block mb-5">';
             
@@ -83,6 +74,12 @@
                 echo '<small class="text-muted"><i class="fas fa-lock me-1"></i> Selesaikan kategori sebelumnya untuk membuka</small>';
             } else {
                 echo '<small class="text-success"><i class="fas fa-unlock me-1"></i> Tersedia untuk dimainkan</small>';
+                if ($category_progress > 0) {
+                    echo '<div class="progress mt-2" style="height: 5px;">';
+                    echo '<div class="progress-bar bg-warning" role="progressbar" style="width: '.$category_progress.'%"></div>';
+                    echo '</div>';
+                    echo '<small class="text-muted">Progress: '.round($category_progress).'%</small>';
+                }
             }
             
             echo '</div>';
@@ -92,22 +89,25 @@
             echo '</div>';
 
             // Get quizzes for this category
-            $result2 = mysqli_query($mysqli, "SELECT * FROM quizzes WHERE category_id = $categ_id LIMIT 4");
+            $result2 = mysqli_query($mysqli, "SELECT * FROM quizzes WHERE category_id = $categ_id ORDER BY id ASC LIMIT 4");
             
             if (mysqli_num_rows($result2) > 0) {
                 echo '<div class="row g-4 quiz-cards-container">'; 
                 
                 while($row2 = mysqli_fetch_assoc($result2)) {
-                    echo '<div class="col-lg-3 col-md-6 col-sm-12">';
+                    $quiz_id = $row2["id"];
                     
-                    // Kuis pertama dalam kategori selalu terbuka
-                    $is_first_quiz = ($row2["id"] == get_first_quiz_id($mysqli, $categ_id));
-                    $is_quiz_locked = $is_category_locked && !$is_first_quiz;
+                    // Gunakan fungsi dari functions.php
+                    $is_quiz_locked = is_quiz_locked($mysqli, $_SESSION['id'], $quiz_id, $categ_id);
+                    $quiz_score = get_user_quiz_score($mysqli, $_SESSION['id'], $quiz_id);
+                    $has_attempted = has_user_attempted_quiz($mysqli, $_SESSION['id'], $quiz_id);
+                    
+                    echo '<div class="col-lg-3 col-md-6 col-sm-12">';
                     
                     echo '<div class="quiz-card-wrapper position-relative h-100">';
                     
                     if (!$is_quiz_locked) {
-                        echo '<a href="user/quiz/quiz.php?id='.$row2["id"].'" class="text-decoration-none h-100 d-block">';
+                        echo '<a href="user/quiz/quiz.php?id='.$quiz_id.'" class="text-decoration-none h-100 d-block">';
                     }
                     
                     echo '<div class="quiz-card card h-100 shadow-sm border-0" style="transition: all 0.3s ease; border-radius: 15px; overflow: hidden;'.($is_quiz_locked ? ' opacity: 0.6;' : '').'">';
@@ -118,12 +118,18 @@
                     
                     // Badges overlay
                     echo '<div class="position-absolute top-0 end-0 p-2">';
-                    if ($is_first_quiz) {
-                        echo '<span class="badge bg-primary rounded-pill px-2 py-1" style="font-size: 0.75rem;">Pembuka</span>';
+                    
+                    // Badge untuk status quiz
+                    if ($has_attempted) {
+                        $badge_class = $quiz_score >= 50 ? 'bg-success' : 'bg-warning';
+                        $badge_text = $quiz_score >= 50 ? 'Lulus' : round($quiz_score).'%';
+                        echo '<span class="badge '.$badge_class.' rounded-pill px-2 py-1" style="font-size: 0.75rem;">'.$badge_text.'</span>';
+                    } elseif ($is_quiz_locked) {
+                        echo '<span class="badge bg-secondary rounded-pill px-2 py-1" style="font-size: 0.75rem;"><i class="fas fa-lock"></i></span>';
+                    } else {
+                        echo '<span class="badge bg-primary rounded-pill px-2 py-1" style="font-size: 0.75rem;">Baru</span>';
                     }
-                    if ($is_quiz_locked) {
-                        echo '<span class="badge bg-secondary rounded-pill px-2 py-1 ms-1" style="font-size: 0.75rem;"><i class="fas fa-lock"></i></span>';
-                    }
+                    
                     echo '</div>';
                     echo '</div>';
                     
@@ -134,12 +140,20 @@
                     
                     // Quiz stats or status
                     echo '<div class="quiz-meta d-flex justify-content-between align-items-center mt-auto pt-2 border-top">';
-                    echo '<small class="text-muted"><i class="fas fa-question-circle me-1"></i>Kuis</small>';
-                    if (!$is_quiz_locked) {
-                        echo '<small class="text-success fw-semibold">Mulai <i class="fas fa-arrow-right ms-1"></i></small>';
-                    } else {
+                    echo '<small class="text-muted"><i class="fas fa-question-circle me-1"></i> Kuis</small>';
+                    
+                    if ($is_quiz_locked) {
                         echo '<small class="text-muted">Terkunci</small>';
+                    } elseif ($has_attempted) {
+                        if ($quiz_score >= 50) {
+                            echo '<small class="text-success fw-semibold">Ulangi <i class="fas fa-redo ms-1"></i></small>';
+                        } else {
+                            echo '<small class="text-warning fw-semibold">Perbaiki <i class="fas fa-arrow-up ms-1"></i></small>';
+                        }
+                    } else {
+                        echo '<small class="text-success fw-semibold">Mulai <i class="fas fa-arrow-right ms-1"></i></small>';
                     }
+                    
                     echo '</div>';
                     
                     echo '</div>';
@@ -164,13 +178,6 @@
             
             echo '</div>'; // category-block
         }
-        
-        // Fungsi bantuan untuk mendapatkan ID kuis pertama dalam kategori
-        function get_first_quiz_id($mysqli, $category_id) {
-            $query = mysqli_query($mysqli, "SELECT id FROM quizzes WHERE category_id = $category_id ORDER BY id ASC LIMIT 1");
-            $result = mysqli_fetch_assoc($query);
-            return $result ? $result['id'] : null;
-        }
         ?>
     </div>
 </div>
@@ -188,6 +195,20 @@
 
 .quiz-card-wrapper:not(.disabled) .quiz-card {
     cursor: pointer;
+}
+
+/* Locked card styling */
+.quiz-card-wrapper .quiz-card[style*="opacity: 0.6"] {
+    cursor: not-allowed;
+}
+
+.quiz-card-wrapper .quiz-card[style*="opacity: 0.6"]:hover {
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.quiz-card-wrapper .quiz-card[style*="opacity: 0.6"]:hover .card-img-top {
+    transform: none;
 }
 
 /* Category Block Styling */
@@ -224,6 +245,22 @@
 .score-info .badge {
     font-size: 0.7rem;
     font-weight: 500;
+}
+
+/* Progress Bar Styling */
+.progress {
+    border-radius: 10px;
+    background-color: rgba(252, 200, 34, 0.2);
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+/* Badge Styling */
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 /* Responsive Design */
@@ -266,6 +303,10 @@
     .section-title {
         font-size: 1.5rem !important;
     }
+    
+    .quiz-cards-container .col-lg-3 {
+        margin-bottom: 1rem;
+    }
 }
 
 /* Loading Animation for Future Use */
@@ -277,4 +318,31 @@
 .loading-pulse {
     animation: pulse 1.5s infinite;
 }
+
+/* Tooltip untuk locked items */
+.quiz-card-wrapper[data-bs-toggle="tooltip"] {
+    cursor: help;
+}
 </style>
+
+<script>
+// Initialize tooltips untuk locked items
+document.addEventListener('DOMContentLoaded', function() {
+    // Add tooltips to locked quiz cards
+    const lockedCards = document.querySelectorAll('.quiz-card[style*="opacity: 0.6"]');
+    lockedCards.forEach(card => {
+        const wrapper = card.closest('.quiz-card-wrapper');
+        wrapper.setAttribute('data-bs-toggle', 'tooltip');
+        wrapper.setAttribute('data-bs-placement', 'top');
+        wrapper.setAttribute('title', 'Selesaikan kuis sebelumnya untuk membuka');
+    });
+    
+    // Initialize Bootstrap tooltips
+    if (typeof bootstrap !== 'undefined') {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+});
+</script>
