@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 17, 2025 at 04:11 PM
+-- Generation Time: May 25, 2025 at 07:10 AM
 -- Server version: 8.0.30
--- PHP Version: 8.3.4
+-- PHP Version: 8.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -252,35 +252,49 @@ CREATE TABLE `quizzes` (
 --
 
 INSERT INTO `quizzes` (`id`, `title`, `description`, `category_id`, `creator_id`) VALUES
-(201, 'Petualangan Matematika di Negeri Ajaib', 'Setiap jawaban memengaruhi kelanjutan cerita Raka', 1, 13),
-(202, 'Matematika Melawan Sang Naga', 'Kalahkan naga dengan kecerdikan matematika', 1, 8),
-(203, 'Matematika Sihir di Sekolah Penyihir', 'Kuasi mantra dengan menguasai matematika sihir', 1, 12),
-(204, 'Perhitungan Astronomi untuk Penyihir Muda', 'Menguasai rahasia langit dengan perhitungan astronomis', 1, 14),
-(205, 'Eksperimen Sains untuk Penjelajah Waktu', 'Di balik pintu laboratorium tersembunyi di Universitas Chronoscience, kamu menemukan catatan peninggalan Profesor Tempora—ilmuwan jenius yang menghilang 73 tahun lalu. Kini, kamu ditantang untuk melanjutkan eksperimennya. Siapkan mikroskop, kalkulator, dan keberanian—karena masa depan ilmu pengetahuan ada di tanganmu.', 2, 7),
-(206, 'Misi Penyelamatan di Luar Angkasa Zeta-9', 'Sebuah stasiun luar angkasa mengalami kerusakan parah akibat reaksi kimia tak stabil di laboratorium orbit. Sebagai ilmuwan muda terbaik dari Bumi, kamu dikirim untuk memecahkan masalah ini. Namun, hanya dengan menyelesaikan serangkaian soal sains, kamu bisa menghentikan kehancuran total.', 2, 1),
-(207, 'Lab Rahasia di Bawah Gunung Vulcanis', 'Gunung Vulcanis yang telah lama dianggap tidak aktif ternyata menyimpan sebuah lab kuno berisi alat-alat eksperimen ilmiah yang luar biasa. Di dalamnya, kamu menemukan tantangan demi tantangan yang harus dipecahkan dengan logika sains untuk membuka kunci rahasia energi panas bumi.', 2, 15),
-(208, 'Virus Alpha: Balapan Melawan Waktu', 'Wabah misterius menyebar cepat di sebuah kota futuristik. Sebuah tim peneliti muda—termasuk kamu—berlomba menemukan penawarnya. Untuk memproduksi vaksin, kamu harus menjawab soal-soal biologi dan kimia secara tepat. Kesalahan sedikit saja bisa fatal.', 2, 7),
-(209, 'Matematika Sihir untuk Pemula', 'Pelajari dasar-dasar perhitungan sihir yang diperlukan setiap penyihir pemula', 1, 1),
-(301, 'Petualangan Kata-Kata Ajaib', 'Ikuti petualangan sihir dimana setiap kata memiliki kekuatan magis. Salah pilih kata bisa berakibat fatal!', 3, 1),
-(302, 'Misteri Puisi Terkunci', 'Bantu detektif muda memecahkan misteri dengan menganalisis petunjuk tersembunyi dalam puisi-puisi kuno', 3, 1),
-(303, 'Perjalanan Bahasa Naga', 'Sebagai calon penjinak naga, kamu harus mempelajari bahasa kuno untuk berkomunikasi dengan makhluk legendaris ini', 3, 1),
-(304, 'Kutukan Grammar', 'Kamu terjebak dalam dunia dimana kesalahan grammar mengakibatkan kutukan mengerikan. Selamatkan dirimu!', 3, 1),
-(305, 'Kerajaan Bangkrut', 'Sebagai menteri keuangan kerajaan yang hampir bangkrut, buat keputusan ekonomi tepat untuk menyelamatkan rakyat', 4, 1),
-(306, 'Penjelajah Pasar Modal', 'Kamu mewarisi toko sihir kuno dan harus menginvestasikan uang dengan bijak untuk mengembangkannya', 4, 1),
-(307, 'Krisis Desa Ajaib', 'Selamatkan desa sihir dari krisis ekonomi dengan menerapkan prinsip ekonomi yang benar', 4, 1),
-(308, 'Entrepreneur Muda', 'Mulai dari nol, bangun bisnis ramuan sihirmu menjadi perusahaan terbesar di dunia magis', 4, 1),
-(413, 'Turnamen Quidditch', 'Sebagai kapten tim Quidditch, atur strategi dan latihan untuk memenangkan piala dunia', 7, 13),
-(414, 'Olimpiade Kuno', 'Ikuti perjalanan atlet Yunani kuno menuju Olimpiade pertama dengan segala rintangannya', 7, 14),
-(415, 'Sekolah Ninja', 'Latih fisik dan mental untuk menjadi ninja terhebat melalui serangkaian ujian olahraga ekstrim', 7, 1),
-(416, 'Penyelamatan dengan Parkour', 'Kejar penjahat melalui lorong-lorong kota dengan teknik parkour sambil memecahkan teka-teki', 7, 7),
-(417, 'Laboratorium Gila', 'Sebagai asisten profesor gila, lakukan eksperimen sains gila dengan konsekuensi tak terduga', 6, 8),
-(418, 'Hacker vs AI', 'Selamatkan sistem komputer dunia dari AI jahat yang ingin mengambil alih kendali', 6, 12),
-(419, 'Misi Galeri Seni', 'Curi lukisan berharga dengan memecahkan teka-teki seni dan menghindari sistem keamanan canggih', 6, 13),
-(420, 'Epidemi Mematikan', 'Sebagai dokter, selidiki sumber wabah aneh dan temukan penawarnya sebelum terlambat', 6, 14),
-(421, 'Dilema Desa Tololongs', 'Sebagai pekerja sosial baru, bantu selesaikan konflik warga Desa Tololongs yang terbelah oleh isu SARA', 5, 1),
-(422, 'Anak Jalanan Kota Megah', 'Bantu sekelompok anak jalanan membangun kehidupan baru melalui program pemberdayaan masyarakat', 5, 8),
-(423, 'Skandal Panti Wredha', 'Ungkap kebenaran di balik pengelolaan dana Panti Wredha \"Kasih Bunda\" yang mencurigakan', 5, 1),
-(424, 'Pemilu Kampung Dukuh', 'Mediasi konflik politik kampung yang hampir pecah menjadi kerusuhan antarwarga', 5, 1);
+(201, 'Petualangan Matematika di Negeri Ajaib', 'Setiap jawaban memengaruhi kelanjutan cerita Raka', 1, 22),
+(202, 'Matematika Melawan Sang Naga', 'Kalahkan naga dengan kecerdikan matematika', 1, 22),
+(203, 'Matematika Sihir di Sekolah Penyihir', 'Kuasi mantra dengan menguasai matematika sihir', 1, 22),
+(204, 'Perhitungan Astronomi untuk Penyihir Muda', 'Menguasai rahasia langit dengan perhitungan astronomis', 1, 22),
+(205, 'Eksperimen Sains untuk Penjelajah Waktu', 'Di balik pintu laboratorium tersembunyi di Universitas Chronoscience, kamu menemukan catatan peninggalan Profesor Tempora—ilmuwan jenius yang menghilang 73 tahun lalu. Kini, kamu ditantang untuk melanjutkan eksperimennya. Siapkan mikroskop, kalkulator, dan keberanian—karena masa depan ilmu pengetahuan ada di tanganmu.', 2, 22),
+(206, 'Misi Penyelamatan di Luar Angkasa Zeta-9', 'Sebuah stasiun luar angkasa mengalami kerusakan parah akibat reaksi kimia tak stabil di laboratorium orbit. Sebagai ilmuwan muda terbaik dari Bumi, kamu dikirim untuk memecahkan masalah ini. Namun, hanya dengan menyelesaikan serangkaian soal sains, kamu bisa menghentikan kehancuran total.', 2, 22),
+(207, 'Lab Rahasia di Bawah Gunung Vulcanis', 'Gunung Vulcanis yang telah lama dianggap tidak aktif ternyata menyimpan sebuah lab kuno berisi alat-alat eksperimen ilmiah yang luar biasa. Di dalamnya, kamu menemukan tantangan demi tantangan yang harus dipecahkan dengan logika sains untuk membuka kunci rahasia energi panas bumi.', 2, 22),
+(208, 'Virus Alpha: Balapan Melawan Waktu', 'Wabah misterius menyebar cepat di sebuah kota futuristik. Sebuah tim peneliti muda—termasuk kamu—berlomba menemukan penawarnya. Untuk memproduksi vaksin, kamu harus menjawab soal-soal biologi dan kimia secara tepat. Kesalahan sedikit saja bisa fatal.', 2, 22),
+(209, 'Matematika Sihir untuk Pemula', 'Pelajari dasar-dasar perhitungan sihir yang diperlukan setiap penyihir pemula', 1, 22),
+(301, 'Petualangan Kata-Kata Ajaib', 'Ikuti petualangan sihir dimana setiap kata memiliki kekuatan magis. Salah pilih kata bisa berakibat fatal!', 3, 22),
+(302, 'Misteri Puisi Terkunci', 'Bantu detektif muda memecahkan misteri dengan menganalisis petunjuk tersembunyi dalam puisi-puisi kuno', 3, 22),
+(303, 'Perjalanan Bahasa Naga', 'Sebagai calon penjinak naga, kamu harus mempelajari bahasa kuno untuk berkomunikasi dengan makhluk legendaris ini', 3, 22),
+(304, 'Kutukan Grammar', 'Kamu terjebak dalam dunia dimana kesalahan grammar mengakibatkan kutukan mengerikan. Selamatkan dirimu!', 3, 22),
+(305, 'Kerajaan Bangkrut', 'Sebagai menteri keuangan kerajaan yang hampir bangkrut, buat keputusan ekonomi tepat untuk menyelamatkan rakyat', 4, 22),
+(306, 'Penjelajah Pasar Modal', 'Kamu mewarisi toko sihir kuno dan harus menginvestasikan uang dengan bijak untuk mengembangkannya', 4, 22),
+(307, 'Krisis Desa Ajaib', 'Selamatkan desa sihir dari krisis ekonomi dengan menerapkan prinsip ekonomi yang benar', 4, 22),
+(308, 'Entrepreneur Muda', 'Mulai dari nol, bangun bisnis ramuan sihirmu menjadi perusahaan terbesar di dunia magis', 4, 22),
+(413, 'Turnamen Quidditch', 'Sebagai kapten tim Quidditch, atur strategi dan latihan untuk memenangkan piala dunia', 7, 22),
+(414, 'Olimpiade Kuno', 'Ikuti perjalanan atlet Yunani kuno menuju Olimpiade pertama dengan segala rintangannya', 7, 22),
+(415, 'Sekolah Ninja', 'Latih fisik dan mental untuk menjadi ninja terhebat melalui serangkaian ujian olahraga ekstrim', 7, 22),
+(416, 'Penyelamatan dengan Parkour', 'Kejar penjahat melalui lorong-lorong kota dengan teknik parkour sambil memecahkan teka-teki', 7, 16),
+(417, 'Laboratorium Gila', 'Sebagai asisten profesor gila, lakukan eksperimen sains gila dengan konsekuensi tak terduga', 6, 16),
+(418, 'Hacker vs AI', 'Selamatkan sistem komputer dunia dari AI jahat yang ingin mengambil alih kendali', 6, 16),
+(419, 'Misi Galeri Seni', 'Curi lukisan berharga dengan memecahkan teka-teki seni dan menghindari sistem keamanan canggih', 6, 16),
+(420, 'Epidemi Mematikan', 'Sebagai dokter, selidiki sumber wabah aneh dan temukan penawarnya sebelum terlambat', 6, 16),
+(421, 'Dilema Desa Tololongs', 'Sebagai pekerja sosial baru, bantu selesaikan konflik warga Desa Tololongs yang terbelah oleh isu SARA', 5, 16),
+(422, 'Anak Jalanan Kota Megah', 'Bantu sekelompok anak jalanan membangun kehidupan baru melalui program pemberdayaan masyarakat', 5, 16),
+(423, 'Skandal Panti Wredha', 'Ungkap kebenaran di balik pengelolaan dana Panti Wredha \"Kasih Bunda\" yang mencurigakan', 5, 16),
+(424, 'Pemilu Kampung Dukuh', 'Mediasi konflik politik kampung yang hampir pecah menjadi kerusuhan antarwarga', 5, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_attempts`
+--
+
+CREATE TABLE `quiz_attempts` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `quiz_id` int NOT NULL,
+  `score` decimal(5,2) DEFAULT '0.00',
+  `completed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -302,7 +316,7 @@ CREATE TABLE `story_segments` (
 --
 
 INSERT INTO `story_segments` (`id`, `quiz_id`, `question_id`, `story_text`, `show_on_correct`, `show_on_wrong`) VALUES
-(2101, 201, 2101, '\"Benar!\" seru peri kecil. Pintu terbuka dengan gemuruh. Raka melihat pemandangan indah negeri ajaib di hadapannya. Matahari bersinar cerah dan burung-burung berkicau menyambutnya.', 1, 0),
+(2101, 201, 2101, '\"Benar!\" seru peri kecil. Pintu terbuka dengan gemuruh. Raka melihat pemandangan indah negeri ajaib di hadapannya. Matahari bersinar cerah dan burung-burung berkicau menyambutnya.....', 1, 0),
 (2102, 201, 2101, '\"Salah!\" pintu mengeluarkan suara menggeram. Alarm berbunyi nyaring. Penjaga gerbang datang dan Raka harus menyembunyikan diri selama 1 jam sebelum bisa mencoba lagi.', 0, 1),
 (2103, 201, 2102, '\"Tepat sekali!\" kata naga besar. Mereka terkesan dan memberikan Raka peta rahasia. \"Ini akan membawamu ke istana ratu,\" bisik naga terkecil.', 1, 0),
 (2104, 201, 2102, '\"Kau tidak menghormati keluarga kami!\" geram naga besar. Mereka menyemburkan api kecil dan membakar tepi jubah Raka. Raka harus mundur dan mencari jalan memutar.', 0, 1),
@@ -383,13 +397,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`, `score`) VALUES
-(1, 'ZiaKfa', '$2y$10$lclm3HWCTCnJ8paf96MxG.0wdmzOIjXwdBtG24vrNme10Wo4EvvS.', 'zia14148@gmail.com', 'admin', 50),
-(7, 'DanielAr', '$2y$10$E4bAtRCKQp.EVlxkKsAwp.IvVE.wEjYQrKbvZzn919kaD/yVxGazO', 'asi@daixd.com', 'user', 0),
-(8, 'Elfataa', '$2y$10$oupTNSvlujLjjS5aGVstJebSHDf6wKcVVczyB9XU85N8vUTIIzB7O', 'kerencoy@yahoo.com', 'user', 0),
+(1, 'ZiaKfa', '$2y$10$lclm3HWCTCnJ8paf96MxG.0wdmzOIjXwdBtG24vrNme10Wo4EvvS.', 'zia14148@gmail.com', 'user', 50),
 (12, 'Fawwaz', '$2y$10$GLb9xZOggvGsebWsOjgmbu.FKonsK.v7xtoZt7o1b6vRKV85GisBC', 'tes@email.com', 'user', 50),
-(13, 'mkhadziq', '$2y$10$0zrtbK2KM4Ssv24k/78anOm8DirkIcUkWTbDDrQU6pUTRdGYFvttG', 'muhammad.khadziq059@mhs.unsoed.ac.id', 'admin', 40),
+(13, 'mkhadziq', '$2y$10$0zrtbK2KM4Ssv24k/78anOm8DirkIcUkWTbDDrQU6pUTRdGYFvttG', 'muhammad.khadziq059@mhs.unsoed.ac.id', 'user', 40),
 (14, 'khdzq059', '$2y$10$LwT3uYGDrYmcFybIyzLTsuNGJjsixNPla3V4PJwAYMZZszhN67GmW', 'khadziq@gmail.com', 'admin', 250),
-(15, 'Fufufafa', '$2y$10$SJ7VwcwvE0Lt1cm5t7onhuwQvNIas1cIj8AgKf2kn8nwWBZBOxCKW', 'fufufafa@gmail.com', 'admin', 50);
+(16, 'mikasa', '$2y$10$ebV.upNuwHUieVk2nHIRres/WFV67UZ6uvDmzq3mQpffngrCFVbkG', 'mikasa@gg.com', 'admin', 0),
+(18, 'seblak', '$2y$10$rRksAj6YMCr6eBpLpEEGiuYXqaU1HaKka2OIIyZ.7seZHLuAbUBGa', 'seblak@gg.com', 'admin', 50),
+(22, 'admin', '$2y$10$o9F0f5EGZ6.2q0T1rsqe2OhW3L6HKrrlv7ZG0ftvf2ui.gHCBcNvq', 'admin@gmail.com', 'admin', 0),
+(26, 'kakashi', '$2y$10$B6PQOLZAi2hWf.36k1lH2uFXIAVoMN8cmgL.TMME88dyJQE7zMwtm', 'kakashi@gmail.com', 'user', 260);
 
 -- --------------------------------------------------------
 
@@ -427,7 +442,48 @@ INSERT INTO `user_answers` (`user_id`, `question_id`, `is_correct`, `answer`) VA
 (14, 2401, 0, 24001),
 (14, 2402, 1, 24005),
 (14, 2403, 0, 24011),
-(14, 2404, 0, 24014);
+(14, 2404, 0, 24014),
+(16, 2101, 0, 21003),
+(16, 2102, 0, 21007),
+(16, 2103, 0, 21011),
+(18, 2101, 0, 21004),
+(18, 2102, 0, 21007),
+(18, 2103, 0, 21012),
+(18, 2501, 1, 25004),
+(18, 2502, 1, 25006),
+(18, 2503, 1, 25011),
+(18, 2504, 1, 25015),
+(18, 2505, 1, 25018),
+(26, 2101, 1, 21001),
+(26, 2102, 1, 21005),
+(26, 2103, 1, 21009),
+(26, 2104, 0, 21014),
+(26, 2105, 1, 21019),
+(26, 2201, 1, 22002),
+(26, 2202, 0, 22007),
+(26, 2203, 0, 22009),
+(26, 2204, 1, 22014),
+(26, 2205, 1, 22018),
+(26, 2301, 1, 23002),
+(26, 2302, 1, 23006),
+(26, 2303, 1, 23010),
+(26, 2304, 1, 23015),
+(26, 2305, 1, 23018),
+(26, 2401, 1, 24002),
+(26, 2402, 1, 24005),
+(26, 2403, 1, 24010),
+(26, 2404, 1, 24015),
+(26, 2405, 1, 24018),
+(26, 2406, 1, 24023),
+(26, 2407, 0, 24027),
+(26, 2408, 1, 24030),
+(26, 2409, 1, 24035),
+(26, 2410, 1, 24037),
+(26, 2501, 1, 25004),
+(26, 2502, 1, 25006),
+(26, 2503, 1, 25011),
+(26, 2504, 1, 25015),
+(26, 2505, 1, 25018);
 
 --
 -- Indexes for dumped tables
@@ -462,6 +518,15 @@ ALTER TABLE `quizzes`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Indexes for table `quiz_attempts`
+--
+ALTER TABLE `quiz_attempts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_user_quiz` (`user_id`,`quiz_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `quiz_id` (`quiz_id`);
+
+--
 -- Indexes for table `story_segments`
 --
 ALTER TABLE `story_segments`
@@ -491,37 +556,43 @@ ALTER TABLE `user_answers`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25021;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25023;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2507;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2515;
 
 --
 -- AUTO_INCREMENT for table `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=425;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=426;
+
+--
+-- AUTO_INCREMENT for table `quiz_attempts`
+--
+ALTER TABLE `quiz_attempts`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `story_segments`
 --
 ALTER TABLE `story_segments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2513;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2529;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
