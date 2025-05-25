@@ -20,7 +20,7 @@
             <div class="hero-section bg-white p-4 mb-4">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h1 class="hero-title mb-3" style="font-size: 3.2rem; font-weight: 700; color: #18152d;">
+                        <h1 class="hero-title1 mb-3" style="font-size: 3.2rem; font-weight: 700; color: #18152d;">
                             Hai, <?php echo htmlspecialchars($_SESSION["username"]); ?>! 👋
                         </h1>
                         <p class="hero-text mb-0" style="font-size: 18px; color: #666;">
@@ -83,7 +83,7 @@
             }
             
             echo '</div>';
-            echo '<a href="/Queasy/user/category/view_category.php?id='.$categ_id.'" class="btn btn-outline-warning btn-sm px-3" style="border-radius: 20px; font-weight: 500;">';
+            echo '<a href="/Queasy/user/category/view_category.php?id='.$categ_id.'" class="btn btn-outline-dark btn-sm px-3" style="border-radius: 20px; font-weight: 500;">';
             echo '<i class="fas fa-eye me-1"></i> Lihat Semua';
             echo '</a>';
             echo '</div>';

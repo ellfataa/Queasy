@@ -103,7 +103,6 @@ if($currentPage == 'dashboard') $pageTitle = 'Dashboard';
         .sidebar-header .logo {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
             margin-bottom: 10px;
         }
         

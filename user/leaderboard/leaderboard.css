@@ -10,27 +10,8 @@
 }
 .nav-item {
   font-size: 14px;
+  font-weight: bold;
 }
-.nav-link {
-  color: #000000;
-  text-decoration: none;
-}
-.nav-item button {
-  font-size: 14px;
-}
-.nav-item a:hover {
-  color: #fcc822;
-  text-decoration: underline;
-  transition: 0.3s;
-}
-.logo:hover {
-  color: white;
-}
-.navbar {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  background-color: white;
-}
-/* navbar end */
 
 :root {
   --primary-color: #fcc822;

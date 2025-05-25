@@ -24,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/q!.ico" type="image/x-icon">
     <link rel="stylesheet" href="leaderboard.css">
+    <link rel="stylesheet" href="../../index.css" />
 </head>
 <body>
     <?php include('../../layout/navbar.php'); ?>

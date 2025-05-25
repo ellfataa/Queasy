@@ -145,7 +145,7 @@ while ($quiz = mysqli_fetch_assoc($quizzes_query)) {
                         <i class="fas fa-th-large me-2"></i>
                         <?php echo htmlspecialchars($category['category_name']); ?>
                     </h1>
-                    <p class="mb-0 opacity-75">
+                    <p class="mb-0">
                         <?php echo htmlspecialchars($category['description'] ?? 'Kumpulan kuis menarik dalam kategori ini'); ?>
                     </p>
                 </div>
@@ -177,7 +177,7 @@ while ($quiz = mysqli_fetch_assoc($quizzes_query)) {
 
         <!-- Back Button -->
         <div class="mb-4">
-            <a href="/Queasy/index.php" class="btn btn-outline-primary">
+            <a href="/Queasy/index.php" class="btn btn-warning text-white">
                 <i class="fas fa-arrow-left me-2"></i> Kembali ke Beranda
             </a>
         </div>
