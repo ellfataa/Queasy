@@ -66,7 +66,7 @@
                             </div>
                             <?= $row["username"] ?>
                             <?php if($row['id'] == $_SESSION['id']): ?>
-                                <span class="badge bg-primary ms-2">Kamu</span>
+                                <span class="ms-2"></span><span class="badge bg-primary ms-2">Kamu</span>
                             <?php endif; ?>
                         </td>
                         <td class="score-cell">

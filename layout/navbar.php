@@ -26,7 +26,7 @@
             <ul class="dropdown-menu">
               <li class="dropdown-item"><?php echo $_SESSION["username"]; ?></li>
               <li><a class="dropdown-item" href="/Queasy/user/profile.php">Profil</a></li>
-              <li><a class="dropdown-item" href="/Queasy/user/quiz/my_quiz.php">Kuisku</a></li>
+              <!-- <li><a class="dropdown-item" href="/Queasy/user/quiz/my_quiz.php">Kuisku</a></li> -->
               <li><hr class="dropdown-divider"></li>
               <li><a href="/Queasy/logout.php"><button type="button" class="dropdown-item text-decoration-none">Keluar</button></a></li>
             </ul>

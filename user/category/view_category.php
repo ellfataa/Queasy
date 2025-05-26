@@ -251,7 +251,7 @@ while ($quiz = mysqli_fetch_assoc($quizzes_query)) {
                     if ($is_locked) {
                         echo '<div class="quiz-card card locked h-100">';
                     } else {
-                        echo '<a href="quiz.php?id='.$quiz_id.'" class="text-decoration-none h-100 d-block">';
+                        echo '<a href="../quiz/quiz.php?id='.$quiz_id.'" class="text-decoration-none h-100 d-block">';
                         echo '<div class="quiz-card card h-100">';
                     }
                     

@@ -49,49 +49,69 @@
     border-left: 4px solid #fcc822;
 }
 
-/* navbar */
+/* NAVBAR - Updated to match index.css */
+.navbar {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    background-color: #023047 !important;
+    padding: 1rem 0;
+}
+
 .logo {
     font-size: 32px;
     font-style: normal;
     font-weight: 800;
-    margin-bottom: 0px;
-    color: #ffffff;
-  }
-  .logo span {
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.logo span {
     color: #fcc822;
-  }
-  .nav-item {
+}
+
+.nav-item {
     font-size: 14px;
-  }
-  .nav-link {
-    color: #ffffff;
+    margin: 0 0.5rem;
+}
+
+.nav-link {
+    color: #fff !important;
     text-decoration: none;
-  }
-  .nav-item button {
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fcc822 !important;
+    background-color: rgba(252, 200, 34, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-item button {
     font-size: 14px;
-  }
-  .nav-item a:hover {
-    color: #fcc822;
-    text-decoration: underline;
-    transition: 0.3s;
-  }
-  .logo:hover {
-    color: white;
-  }
-  .navbar{
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-  /* navbar end */
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-item button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/* navbar end */
   
 input[type="radio"] {
     /* background-color: #fcc822; */
     /* display: none; */
     visibility: hidden;
-  }
+}
 
 input[type="radio"]:checked + label {
     background-color: #fcc822;
 }
+
 .answer {
     width: 100%;
     height: 50px;
