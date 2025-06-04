@@ -142,26 +142,8 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Fix dropdown position - geser ke kiri */
-.dropdown-menu {
-  border: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  /*Geserdropdownkekiri*/right: 0 !important;
-  left: auto !important;
-  transform: translateX(0) !important;
-  min-width: 140px;
-  text-align: right;
-}
 
 .dropdown-menu-end {
-  right: 0 !important;
-  left: auto !important;
-}
-
-/* Untuk dropdown yang di pojok kanan navbar */
-.navbar .dropdown:last-child .dropdown-menu,
-.navbar .nav-item:last-child .dropdown-menu {
   right: 0 !important;
   left: auto !important;
 }
@@ -174,7 +156,7 @@ body {
 }
 
 .dropdown-item:hover {
-  background-color: #fff;
+  background-color: #d6d6d6;
   color: #000;
 }
 

@@ -88,9 +88,27 @@ if($currentPage == 'dashboard') $pageTitle = 'Dashboard';
             transition: all 0.3s ease;
             overflow-y: auto;
         }
+
+        .user-info {
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.collapsed .user-info {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transform: scale(0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar.collapsed .user-panel {
+            padding: 10px 0;
+            border-bottom: none;
+        }
         
         .sidebar.collapsed {
-            width: 70px;
+            width: 84px;
         }
         
         .sidebar-header {
@@ -497,8 +515,10 @@ if($currentPage == 'dashboard') $pageTitle = 'Dashboard';
         </div>
         
         <div class="user-panel">
-            <div class="user-name"><?php echo htmlspecialchars($_SESSION['username']); ?></div>
-            <div class="user-role">Administrator</div>
+            <div class="user-info">
+                <div class="user-name"><?php echo htmlspecialchars($_SESSION['username']); ?></div>
+                <div class="user-role">Administrator</div>
+            </div>
         </div>
         
         <nav class="nav-menu">
