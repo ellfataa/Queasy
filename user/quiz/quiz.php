@@ -11,7 +11,6 @@ $user_id = $_SESSION['id'];
 $quiz_id = (int)$_GET['id'];
 $_SESSION['quiz_id'] = $quiz_id;
 
-
 // Ambil data kuis saat ini
 $current_quiz_query = mysqli_query($mysqli, "SELECT * FROM quizzes WHERE id = $quiz_id");
 $current_quiz = mysqli_fetch_assoc($current_quiz_query);
@@ -24,54 +23,17 @@ if (!$current_quiz) {
 
 $category_id = $current_quiz['category_id'];
 
-// Ambil daftar kuis dalam kategori yang sama, diurutkan berdasarkan ID
-$quizzes_query = mysqli_query($mysqli, "
-    SELECT id FROM quizzes 
-    WHERE category_id = $category_id 
-    ORDER BY id ASC
-");
-
-$quiz_ids = [];
-while ($quiz = mysqli_fetch_assoc($quizzes_query)) {
-    $quiz_ids[] = $quiz['id'];
-}
-
-// Temukan posisi kuis saat ini dalam daftar
-$current_index = array_search($quiz_id, $quiz_ids);
-
-if ($current_index === false) {
-    $_SESSION['error'] = "Kuis tidak valid.";
-    header("Location: index.php");
-    exit;
-}
-
-// Jika bukan kuis pertama, periksa skor pada kuis sebelumnya
-if ($current_index > 0) {
-    $previous_quiz_id = $quiz_ids[$current_index - 1];
-    
-    // Hitung jumlah pertanyaan di kuis sebelumnya
-    $total_questions_query = mysqli_query($mysqli, "SELECT COUNT(*) as total FROM questions WHERE quiz_id = $previous_quiz_id");
-    $total_questions_data = mysqli_fetch_assoc($total_questions_query);
-    $total_questions = $total_questions_data['total'];
-    
-    // Hitung skor pengguna pada kuis sebelumnya
-    $score_query = mysqli_query($mysqli, "
-        SELECT SUM(ua.is_correct) AS correct_answers
-        FROM questions q
-        JOIN user_answers ua ON ua.question_id = q.id
-        WHERE q.quiz_id = $previous_quiz_id AND ua.user_id = $user_id
-    ");
-    $score_data = mysqli_fetch_assoc($score_query);
-    $correct_answers = (int)($score_data['correct_answers'] ?? 0);
-    
-    // Hitung persentase skor
-    $previous_quiz_score = ($total_questions > 0) ? ($correct_answers / $total_questions) * 100 : 0;
-
-    if ($previous_quiz_score < 50) {
+// Periksa apakah kuis terkunci menggunakan fungsi dari functions.php
+if (is_quiz_locked($mysqli, $user_id, $quiz_id, $category_id)) {
+    if ($category_id == 1) {
+        // Untuk kategori Matematika, seharusnya tidak terkunci
+        // Jika sampai di sini ada bug di fungsi is_quiz_locked
+        $_SESSION['error'] = "Terjadi kesalahan sistem. Silakan coba lagi.";
+    } else {
         $_SESSION['error'] = "Anda harus menyelesaikan kuis sebelumnya dengan skor minimal 50% untuk mengakses kuis ini.";
-        header("Location: view_category.php?id=$category_id");
-        exit;
     }
+    header("Location: view_category.php?id=$category_id");
+    exit;
 }
 
 // Inisialisasi nyawa dan progress
